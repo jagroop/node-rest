@@ -28,8 +28,8 @@ class WebController{
 	 */
 	users(req, res) {
 		db.query('SELECT * FROM users', function (error, results, fields) {
-		  if (error) throw error;
-		  res.json(results);
+		  if (error) throw error
+		  res.json(results)
 		});
 	}
 }
