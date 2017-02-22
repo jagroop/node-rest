@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const web = (require('./../controllers/WebController'))
+const web = require('./../controllers/WebController')
 
 router.get('/', web.index)
 
