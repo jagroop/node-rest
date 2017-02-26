@@ -1,5 +1,5 @@
 const db = require('./../bootstrap/mysql')
-
+const validator = require('validator')
 class WebController{
 	
 	constructor() {
@@ -16,6 +16,10 @@ class WebController{
 		  if (error) throw error
 		  res.json(results)
 		});
+	}
+
+	create(req, res) {
+		res.json(validator.isEmpty(req.body.name))
 	}
 }
 module.exports = new WebController
