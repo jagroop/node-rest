@@ -8,3 +8,16 @@ $ cd node-rest
 $ npm install
 $ npm start
 ```
+
+##Dependencies
+
+```json
+{
+	"dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "mysql": "^2.13.0",
+    "validator": "^7.0.0"
+    }
+}
+```
