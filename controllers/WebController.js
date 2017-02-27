@@ -1,5 +1,7 @@
+'use strict'
+
 const db = require('./../bootstrap/mysql')
-const validator = require('validator')
+const indicative = require('indicative')
 class WebController{
 	
 	constructor() {
@@ -19,7 +21,29 @@ class WebController{
 	}
 
 	create(req, res) {
-		res.json(validator.isEmpty(req.body.name))
+		const rules = {
+		  username  : 'required|alpha_numeric',
+		  email     : 'required|email',
+		  password  : 'required|min:6|max:30'
+		}
+
+		const data = {
+		  username  : 'jagroopsingh',
+		  email     : 'doe@example.org',
+		  password  : 'doe123456'
+		}
+
+		const messages = {
+			'username.required' : 'The username field is required.'
+		}
+
+		indicative.validateAll(data, rules, messages)
+		.then(function () {
+		  res.send('validation passed')
+		})
+		.catch(function (errors) {
+		  res.json(errors)
+		})
 	}
 }
 module.exports = new WebController
