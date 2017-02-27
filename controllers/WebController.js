@@ -1,8 +1,10 @@
 'use strict'
 
 const db = require('./../bootstrap/mysql')
+
 const indicative = require('indicative')
-class WebController{
+
+class WebController {
 	
 	constructor() {
 
